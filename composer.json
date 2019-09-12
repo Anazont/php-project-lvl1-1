@@ -8,8 +8,9 @@
         }
     ],
     "licence": "MIT",
+    "minimum-stability": "dev",
     "bin": [
-        "./brainGames"
+        "./brain-games"
     ],
     "require": {}
 
