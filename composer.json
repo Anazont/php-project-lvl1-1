@@ -1,0 +1,16 @@
+{
+    "name": "rinatsin/php-project-lvl1",
+    "description": "PHP Project lvl1",
+    "authors": [
+        {
+            "name": "rinat salimyanov",
+            "email": "rinatsin@gmail.com"
+        }
+    ],
+    "licence": "MIT",
+    "bin": [
+        "./brainGames"
+    ],
+    "require": {}
+
+}
