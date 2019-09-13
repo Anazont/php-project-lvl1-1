@@ -10,7 +10,7 @@
     "licence": "MIT",
     "minimum-stability": "dev",
     "bin": [
-        "./projects/bin/brain-games"
+        "bin/brain-games"
     ],
     "require": {}
 
