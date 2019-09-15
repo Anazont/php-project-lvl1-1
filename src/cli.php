@@ -19,7 +19,7 @@ use function \cli\line;
 use function \cli\prompt;
 
 /**
- * This function start the project
+ * This function start this project 
  * 
  * @return void
  */
