@@ -2,9 +2,9 @@
 
 /**
  * Command Line functions to interraction with user
- * 
+ *
  * PHP version 7.3
- * 
+ *
  * @category PHP
  * @package  Php-project-lvl1
  * @author   Rinat Salimyanov <rinatsin@gmail.com>
@@ -13,14 +13,14 @@
  */
 
 
-namespace BrainGames\Cli; 
+namespace BrainGames\Cli;
 
-use function \cli\line;
-use function \cli\prompt;
+use function cli\line;
+use function cli\prompt;
 
 /**
- * This function start this project 
- * 
+ * This function start this project
+ *
  * @return void
  */
 function run()
