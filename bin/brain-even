@@ -14,5 +14,4 @@ if (file_exists($loadPath1)) {
     require_once $loadPath2;
 }
 
-run();
 isEven();
