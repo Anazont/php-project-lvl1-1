@@ -7,7 +7,7 @@
             "email": "rinatsin@gmail.com"
         }
     ],
-    "licence": "MIT",
+    "license": "MIT",
     "minimum-stability": "dev",
     "scripts": {
         "phpcs": "phpcs"
