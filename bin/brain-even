@@ -2,6 +2,7 @@
 
 <?php
 
+use function BrainGames\Cli\run;
 use function BrainGames\Even\isEven;
 
 $loadPath1 = __DIR__.'/../../../autoload.php';
@@ -13,4 +14,5 @@ if (file_exists($loadPath1)) {
     require_once $loadPath2;
 }
 
+run();
 isEven();
