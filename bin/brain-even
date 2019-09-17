@@ -4,13 +4,13 @@
 
 use function BrainGames\Even\isEven;
 
-//$loadPath1 = __DIR__.'/../../../autoload.php';
-//$loadPath2 = __DIR__.'/../vendor/autoload.php';
+$loadPath1 = __DIR__.'/../../../autoload.php';
+$loadPath2 = __DIR__.'/../vendor/autoload.php';
 
-//if (file_exists($loadPath1)) {
-//   require_once $loadPath1;
-//} else {
-//    require_once $loadPath2;
-//}
+if (file_exists($loadPath1)) {
+   require_once $loadPath1;
+} else {
+    require_once $loadPath2;
+}
 
 isEven();
