@@ -36,7 +36,7 @@ function isEven()
         if ($userValue !== $evenValue) {
             line(" '%s' is wrong answer ;(.", $userValue);
             line("Correct answer was '%s'.Let's try again, %s!", $evenValue, $name);
-            break 2;
+            exit;
         } else {
             line("Correct!");
         }
