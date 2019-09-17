@@ -34,7 +34,8 @@ function isEven()
     foreach ($numbersIsEven as $number => $evenValue) {
         $userValue = prompt("Question: {$number}");
         if ($userValue !== $evenValue) {
-            line(" '%s' is wrong answer ;(. Correct answer was '%s'.Let's try again, %s!", $userValue, $evenValue, $name);
+            line(" '%s' is wrong answer ;(.", $userValue);
+            line("Correct answer was '%s'.Let's try again, %s!", $evenValue, $name);
         } else {
             line("Correct!");
         }
