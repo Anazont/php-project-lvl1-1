@@ -13,10 +13,11 @@
         "phpcs": "phpcs"
     },
     "bin": [
-        "bin/brain-games"
+        "bin/brain-games",
+        "bin/brain-even"
     ],
     "autoload": {
-        "files": ["src/cli.php"]
+        "files": ["src/cli.php", "src/even.php"]
     },
     "require": {
         "wp-cli/php-cli-tools": "*"
