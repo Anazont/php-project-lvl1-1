@@ -17,7 +17,7 @@
         "bin/brain-even"
     ],
     "autoload": {
-        "files": ["src/cli.php", "src/even.php", "src/path_loader.php"]
+        "files": ["src/cli.php", "src/even.php", "src/loader.php"]
     },
     "require": {
         "wp-cli/php-cli-tools": "*"

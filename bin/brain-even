@@ -3,7 +3,7 @@
 <?php
 
 use function BrainGames\Even\isEven;
-use function BrainGames\Path_loader\load;
+use function BrainGames\Loader\load;
 
 load();
 

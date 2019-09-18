@@ -13,7 +13,7 @@
  */
 
 
-namespace BrainGames\Path_loader;
+namespace BrainGames\Loader;
 
 /**
  * The function is load path   
