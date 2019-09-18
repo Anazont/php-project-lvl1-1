@@ -3,14 +3,8 @@
 <?php
 
 use function BrainGames\Even\isEven;
+use function BrainGames\Path_loader\load;
 
-$loadPath1 = __DIR__.'/../../../autoload.php';
-$loadPath2 = __DIR__.'/../vendor/autoload.php';
-
-if (file_exists($loadPath1)) {
-   require_once $loadPath1;
-} else {
-    require_once $loadPath2;
-}
+load();
 
 isEven();
