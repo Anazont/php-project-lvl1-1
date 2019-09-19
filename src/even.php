@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Command Line functions to interraction with user
+ * Command Line functions release game Even
  *
  * PHP version 7.3
  *
