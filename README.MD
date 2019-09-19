@@ -9,4 +9,4 @@
 
 ### Example game Brain-even
 
-[![asciicast](https://asciinema.org/a/269724.svg)](https://asciinema.org/a/269724)
+<script id="asciicast-269724" src="https://asciinema.org/a/269724.js" async></script>
