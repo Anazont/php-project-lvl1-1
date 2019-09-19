@@ -19,8 +19,8 @@ use function cli\prompt;
 use function BrainGames\Cli\run;
 
 /**
- * The function is expect the nunber is even    
- * 
+ * The function is expect the nunber is even
+ *
  * @return void
  */
 function isEven()

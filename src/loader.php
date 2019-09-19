@@ -16,14 +16,14 @@
 namespace BrainGames\Loader;
 
 /**
- * The function is load path   
- * 
+ * The function is load path
+ *
  * @return void
  */
 function load()
 {
-    $loadPath1 = __DIR__.'/../../../autoload.php';
-    $loadPath2 = __DIR__.'/../vendor/autoload.php';
+    $loadPath1 = __DIR__ . '/../../../autoload.php';
+    $loadPath2 = __DIR__ . '/../vendor/autoload.php';
 
     if (file_exists($loadPath1)) {
         include_once $loadPath1;
