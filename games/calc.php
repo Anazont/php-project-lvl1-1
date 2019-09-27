@@ -16,7 +16,6 @@ namespace BrainGames\Calc;
 
 use function cli\prompt;
 
-
 /**
  * The function asks the user to add 2 numbers
  *
