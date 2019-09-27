@@ -12,9 +12,7 @@
  * @link     https://github.com/Rinatsin/php-project-lvl1
  */
 
-
 namespace BrainGames\Generator;
-
 
 /**
  * Function generate random value
