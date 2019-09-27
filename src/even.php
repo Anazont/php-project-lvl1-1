@@ -14,32 +14,36 @@
 
 namespace BrainGames\Even;
 
-use function cli\line;
 use function cli\prompt;
-use function BrainGames\Cli\run;
+
+/**
+ * The function asks the user to add 2 numbers
+ *
+ * @param integer $number random number
+ * 
+ * @return integer
+ */
+function evenQuestion($number) 
+{
+    $userValue = prompt("Question: {$number}");
+    return $userValue;
+}
 
 /**
  * The function is expect the nunber is even
  *
- * @return void
+ * @param integer $number random number
+ * 
+ * @return string
  */
-function isEven()
+function isEven($number)
 {
-    $name = run();
-    $numbersIsEven = [
-        15 => 'no',
-        6 => 'yes',
-        7 => 'no'
-    ];
-    foreach ($numbersIsEven as $number => $evenValue) {
-        $userValue = prompt("Question: {$number}");
-        if ($userValue !== $evenValue) {
-            line(" '%s' is wrong answer ;(.", $userValue);
-            line("Correct answer was '%s'.Let's try again, %s!", $evenValue, $name);
-            exit;
-        } else {
-            line("Correct!");
-        }
+    if (($number % 2) === 0) {
+        $corAnswer = 'yes';
+    } else {
+        $corAnswer = 'no';
     }
-    line("Congratulations, %s", $name);
+
+    return $corAnswer;
 }
+

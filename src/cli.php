@@ -18,16 +18,31 @@ namespace BrainGames\Cli;
 use function cli\line;
 use function cli\prompt;
 
+const ROUNDS = 3;
+
 /**
  * This function start this project
  *
+ * @param integer $userValue first value
+ * @param integer $corAnswer second value
+ * 
  * @return void
  */
-function run()
+function run($userValue, $corAnswer)
 {
     line("Welcome To The Brain Games!");
     line("Answer 'yes' if the number is even, otherwise answer 'no'.");
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-    return $name;
+
+    for ($i = 0; $i < ROUNDS; $i++) {
+        if ($userValue !== $corAnswer) {
+            line(" '%s' is wrong answer ;(.", $userValue);
+            line("Correct answer was '%s'.Let's try again, %s!", $corAnswer, $name);
+            exit;
+        } else {
+            line("Correct!");
+        }
+    }
+        line("Congratulations, %s", $name);
 }
