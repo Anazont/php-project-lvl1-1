@@ -25,7 +25,7 @@ const ROUNDS = 3;
  *
  * @param integer $userValue first value
  * @param integer $corAnswer second value
- * 
+ *
  * @return void
  */
 function run($userValue, $corAnswer)

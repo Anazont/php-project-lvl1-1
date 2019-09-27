@@ -20,10 +20,10 @@ use function cli\prompt;
  * The function asks the user to add 2 numbers
  *
  * @param integer $number random number
- * 
+ *
  * @return integer
  */
-function evenQuestion($number) 
+function evenQuestion($number)
 {
     $userValue = prompt("Question: {$number}");
     return $userValue;
@@ -33,7 +33,7 @@ function evenQuestion($number)
  * The function is expect the nunber is even
  *
  * @param integer $number random number
- * 
+ *
  * @return string
  */
 function isEven($number)
@@ -46,4 +46,3 @@ function isEven($number)
 
     return $corAnswer;
 }
-

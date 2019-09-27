@@ -23,10 +23,10 @@ use function cli\prompt;
  * @param integer $num1      first value
  * @param integer $num2      second value
  * @param string  $operation type of operation
- * 
+ *
  * @return integer
  */
-function calcQuestion($num1, $num2, $operation) 
+function calcQuestion($num1, $num2, $operation)
 {
     $userValue = prompt("Question: {$num1}{$operation}{$num2}");
     return $userValue;
@@ -39,7 +39,7 @@ function calcQuestion($num1, $num2, $operation)
  * @param integer $num1      first value
  * @param integer $num2      second value
  * @param string  $operation type of operation
- * 
+ *
  * @return integer
  */
 function calculate($num1, $num2, $operation)
