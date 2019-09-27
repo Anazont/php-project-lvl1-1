@@ -3,8 +3,8 @@
 <?php
 
 use function BrainGames\Cli\run;
-use function BrainGames\Even\calcQuestion;
-use function BrainGames\Even\calculate;
+use function BrainGames\Calc\calcQuestion;
+use function BrainGames\Calc\calculate;
 
 $loadPath1 = __DIR__ . '/../../../autoload.php';
 $loadPath2 = __DIR__ . '/../vendor/autoload.php';
