@@ -5,6 +5,7 @@
 use function BrainGames\Cli\run;
 use function BrainGames\Even\evenQuestion;
 use function BrainGames\Even\isEven;
+use function BrainGames\Generator\generate;
 
 $loadPath1 = __DIR__ . '/../../../autoload.php';
 $loadPath2 = __DIR__ . '/../vendor/autoload.php';
