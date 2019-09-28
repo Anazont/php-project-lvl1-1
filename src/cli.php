@@ -28,21 +28,23 @@ const ROUNDS = 3;
  *
  * @return void
  */
-function run($userValue, $corAnswer)
+function run($userValue = 0, $corAnswer = 0)
 {
     line("Welcome To The Brain Games!");
     line("Answer 'yes' if the number is even, otherwise answer 'no'.");
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
 
-    for ($i = 0; $i < ROUNDS; $i++) {
-        if ($userValue !== $corAnswer) {
-            line(" '%s' is wrong answer ;(.", $userValue);
-            line("Correct answer was '%s'.Let's try again, %s!", $corAnswer, $name);
-            exit;
-        } else {
-            line("Correct!");
+    if ($userValue !== 0 AND $corAnswer !== 0) {
+        for ($i = 0; $i < ROUNDS; $i++) {
+            if ($userValue !== $corAnswer) {
+                line(" '%s' is wrong answer ;(.", $userValue);
+                line("Correct answer was '%s'.Let's try again, %s!", $corAnswer, $name);
+                exit;
+            } else {
+                line("Correct!");
+            }
         }
+            line("Congratulations, %s", $name);
     }
-        line("Congratulations, %s", $name);
 }
