@@ -10,3 +10,7 @@
 ### Example game Brain-even
 
 [![asciicast](https://asciinema.org/a/269724.svg)](https://asciinema.org/a/269724)
+
+### Example game Brain-calc
+
+[![asciicast](https://asciinema.org/a/yXQPphEp860EQq1WpCcfc9DNv.svg)](https://asciinema.org/a/yXQPphEp860EQq1WpCcfc9DNv)
