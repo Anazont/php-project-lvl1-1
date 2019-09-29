@@ -3,9 +3,6 @@
 <?php
 
 use function BrainGames\Cli\run;
-use function BrainGames\Calc\calcQuestion;
-use function BrainGames\Calc\calculate;
-use function BrainGames\Generator\generate;
 
 $loadPath1 = __DIR__ . '/../../../autoload.php';
 $loadPath2 = __DIR__ . '/../vendor/autoload.php';
@@ -16,11 +13,4 @@ if (file_exists($loadPath1)) {
     include_once $loadPath2;
 }
 
-$operations = ['+', '-', '*'];
-$num1 = generate();
-$num2 = generate();
-$operation = $operations[array_rand($operations)];
-
-$userValue = calcQuestion($num1, $num2, $operation);
-$corAnswer = calculate($num1, $num2, $operation);
-run($userValue, $corAnswer);
+run('calc');

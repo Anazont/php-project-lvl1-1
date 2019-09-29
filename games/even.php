@@ -19,26 +19,26 @@ use function cli\prompt;
 /**
  * The function asks the user to add 2 numbers
  *
- * @param integer $number random number
+ * @param integer $num random number
  *
  * @return integer
  */
-function evenQuestion($number)
+function evenQuestion($num)
 {
-    $userValue = prompt("Question: {$number}");
+    $userValue = prompt("Question: {$num}");
     return $userValue;
 }
 
 /**
  * The function is expect the nunber is even
  *
- * @param integer $number random number
+ * @param integer $num random number
  *
  * @return string
  */
-function isEven($number)
+function isEven($num)
 {
-    if (($number % 2) === 0) {
+    if (($num % 2) === 0) {
         $corAnswer = 'yes';
     } else {
         $corAnswer = 'no';

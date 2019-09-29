@@ -15,6 +15,11 @@
 
 namespace BrainGames\Cli;
 
+use function BrainGames\Calc\calcQuestion;
+use function BrainGames\Calc\calculate;
+use function BrainGames\Even\evenQuestion;
+use function BrainGames\Even\isEven;
+use function BrainGames\Generator\generate;
 use function cli\line;
 use function cli\prompt;
 
@@ -23,28 +28,44 @@ const ROUNDS = 3;
 /**
  * This function start this project
  *
- * @param integer $userValue first value
- * @param integer $corAnswer second value
+ * @param string $game type og Game
  *
  * @return void
  */
-function run($userValue = 0, $corAnswer = 0)
+function run($game = 'nogame')
 {
     line("Welcome To The Brain Games!");
-    line("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    if ($game === 'even') {
+        line("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    } elseif ($game === 'calc') {
+        line("What is the result of the expression?");
+    } else {
+        line("This is the collection of Brain Games");
+    }
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
-
-    if ($userValue !== 0 AND $corAnswer !== 0) {
-        for ($i = 0; $i < ROUNDS; $i++) {
-            if ($userValue !== $corAnswer) {
-                line(" '%s' is wrong answer ;(.", $userValue);
-                line("Correct answer was '%s'.Let's try again, %s!", $corAnswer, $name);
-                exit;
-            } else {
-                line("Correct!");
-            }
+    for ($i = 0; $i < ROUNDS; $i++) {
+        if ($game === 'even') {
+            $num = generate();
+            $userValue = evenQuestion($num);
+            $corAnswer = isEven($num);
+        } elseif ($game === 'calc') {
+            $operations = ['+', '-', '*'];
+            $num1 = generate();
+            $num2 = generate();
+            $operation = $operations[array_rand($operations)];
+            $userValue = calcQuestion($num1, $num2, $operation);
+            $corAnswer = calculate($num1, $num2, $operation);
+        } else {
+            exit;
         }
-            line("Congratulations, %s", $name);
+        if ($userValue !== $corAnswer) {
+            line(" '%s' is wrong answer ;(.", $userValue);
+            line("Correct answer was '%s'.Let's try again, %s!", $corAnswer, $name);
+            exit;
+        } else {
+            line("Correct!");
+        }
     }
+        line("Congratulations, %s", $name);
 }
