@@ -27,7 +27,7 @@ use function cli\prompt;
  */
 function calcQuestion($num1, $num2, $operation)
 {
-    $userValue = prompt("Question: {$num1}{$operation}{$num2}");
+    $userValue = +prompt("Question: {$num1}{$operation}{$num2}");
     return $userValue;
 }
 
