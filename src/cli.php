@@ -44,12 +44,11 @@ function run($game = 'nogame')
     }
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
+    if ($game === 'nogame') {
+        exit;
+    }
     for ($i = 0; $i < ROUNDS; $i++) {
-        $values = [];
         $values = changeGame($game);
-        if (!isset($values)) {
-            exit;
-        }
         if ($values['userValue'] !== $values['corAnswer']) {
             line(" '%s' is wrong answer ;(.", $values['userValue']);
             line("Correct answer was '%s'.Let's try again, %s!", $values['corAnswer'], $name);
@@ -82,6 +81,6 @@ function changeGame($game = 'nogame')
         $operation = $operations[array_rand($operations)];
         $values['userValue'] = calcQuestion($num1, $num2, $operation);
         $values['corAnswer'] = calculate($num1, $num2, $operation);
-    }
+    } 
     return $values;
 }
