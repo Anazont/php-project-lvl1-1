@@ -45,27 +45,43 @@ function run($game = 'nogame')
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     for ($i = 0; $i < ROUNDS; $i++) {
-        if ($game === 'even') {
-            $num = generate();
-            $userValue = evenQuestion($num);
-            $corAnswer = isEven($num);
-        } elseif ($game === 'calc') {
-            $operations = ['+', '-', '*'];
-            $num1 = generate();
-            $num2 = generate();
-            $operation = $operations[array_rand($operations)];
-            $userValue = calcQuestion($num1, $num2, $operation);
-            $corAnswer = calculate($num1, $num2, $operation);
-        } else {
+        $values = [];
+        $values = changeGame($game);
+        if (!isset($values)) {
             exit;
         }
-        if ($userValue !== $corAnswer) {
-            line(" '%s' is wrong answer ;(.", $userValue);
-            line("Correct answer was '%s'.Let's try again, %s!", $corAnswer, $name);
+        if ($values['userValue'] !== $values['corAnswer']) {
+            line(" '%s' is wrong answer ;(.", $values['userValue']);
+            line("Correct answer was '%s'.Let's try again, %s!", $values['corAnswer'], $name);
             exit;
         } else {
             line("Correct!");
         }
     }
         line("Congratulations, %s", $name);
+}
+
+/**
+ * This function start this project
+ *
+ * @param string $game type og Game
+ *
+ * @return array
+ */
+function changeGame($game = 'nogame')
+{
+    $values = [];
+    if ($game === 'even') {
+        $num = generate();
+        $values['userValue'] = evenQuestion($num);
+        $values['corAnswer'] = isEven($num);
+    } elseif ($game === 'calc') {
+        $operations = ['+', '-', '*'];
+        $num1 = generate();
+        $num2 = generate();
+        $operation = $operations[array_rand($operations)];
+        $values['userValue'] = calcQuestion($num1, $num2, $operation);
+        $values['corAnswer'] = calculate($num1, $num2, $operation);
+    }
+    return $values;
 }
