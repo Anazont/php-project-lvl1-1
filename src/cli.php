@@ -37,15 +37,7 @@ const ROUNDS = 3;
 function run($game = 'nogame')
 {
     line("Welcome To The Brain Games!");
-    if ($game === 'even') {
-        line("Answer 'yes' if the number is even, otherwise answer 'no'.");
-    } elseif ($game === 'calc') {
-        line("What is the result of the expression?");
-    } elseif ($game === 'gcd') {
-        line("Find the greatest common divisor of given numbers.");
-    } else {
-        line("This is the collection of Brain Games");
-    }
+    greeting($game);
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     if ($game === 'nogame') {
@@ -65,9 +57,9 @@ function run($game = 'nogame')
 }
 
 /**
- * This function start this project
+ * This function change type of game
  *
- * @param string $game type og Game
+ * @param string $game type of Game
  *
  * @return array
  */
@@ -92,4 +84,24 @@ function changeGame($game = 'nogame')
         $values['corAnswer'] = gcd($num1, $num2);
     }
     return $values;
+}
+
+/**
+ * Function change greeting message for various games
+ * 
+ * @param string $game type of game
+ * 
+ * @return string message
+ */
+function greeting($game)
+{
+    if ($game === 'even') {
+        line("Answer 'yes' if the number is even, otherwise answer 'no'.");
+    } elseif ($game === 'calc') {
+        line("What is the result of the expression?");
+    } elseif ($game === 'gcd') {
+        line("Find the greatest common divisor of given numbers.");
+    } else {
+        line("This is the collection of Brain Games");
+    }
 }
