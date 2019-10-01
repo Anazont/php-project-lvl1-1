@@ -26,7 +26,7 @@ use function cli\prompt;
  */
 function gcdQuestion($num1, $num2)
 {
-    $userValue = prompt("Question: {$num1} {$num2}");
+    $userValue = +prompt("Question: {$num1} {$num2}");
     return $userValue;
 }
 
