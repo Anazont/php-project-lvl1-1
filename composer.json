@@ -1,6 +1,6 @@
 {
     "name": "rinatsin/php-project-lvl1",
-    "description": "PHP Project lvl1",
+    "description": "PHP Project implements the Brain Games",
     "authors": [
         {
             "name": "rinat salimyanov",
@@ -15,10 +15,15 @@
     "bin": [
         "bin/brain-games",
         "bin/brain-even",
-        "bin/brain-calc"
+        "bin/brain-calc",
+        "bin/brain-gcd"
     ],
     "autoload": {
-        "files": ["src/cli.php", "games/even.php", "games/calc.php", "src/generator.php"]
+        "files": ["src/cli.php",
+                "games/even.php",
+                "games/calc.php",
+                "games/gcd.php",
+                "src/generator.php"]
     },
     "require": {
         "wp-cli/php-cli-tools": "*"

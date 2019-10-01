@@ -19,6 +19,8 @@ use function BrainGames\Calc\calcQuestion;
 use function BrainGames\Calc\calculate;
 use function BrainGames\Even\evenQuestion;
 use function BrainGames\Even\isEven;
+use function BrainGames\Gcd\gcd;
+use function BrainGames\Gcd\gcdQuestion;
 use function BrainGames\Generator\generate;
 use function cli\line;
 use function cli\prompt;
@@ -39,6 +41,8 @@ function run($game = 'nogame')
         line("Answer 'yes' if the number is even, otherwise answer 'no'.");
     } elseif ($game === 'calc') {
         line("What is the result of the expression?");
+    } elseif ($game === 'gcd') {
+        line("Find the greatest common divisor of given numbers.");
     } else {
         line("This is the collection of Brain Games");
     }
@@ -81,6 +85,11 @@ function changeGame($game = 'nogame')
         $operation = $operations[array_rand($operations)];
         $values['userValue'] = calcQuestion($num1, $num2, $operation);
         $values['corAnswer'] = calculate($num1, $num2, $operation);
-    } 
+    } elseif ($game === 'gcd') {
+        $num1 = generate();
+        $num2 = generate();
+        $values['userValue'] = gcdQuestion($num1, $num2);
+        $values['corAnswer'] = gcd($num1, $num2);
+    }
     return $values;
 }
