@@ -18,3 +18,7 @@
 ### Example game Brain-gcd
 
 [![asciicast](https://asciinema.org/a/kucmK05mqRDx7IboD6imHzMA2.svg)](https://asciinema.org/a/kucmK05mqRDx7IboD6imHzMA2)
+
+### Example game Brain-progression
+
+[![asciicast](https://asciinema.org/a/t1NyvcQycmuSpdtRHRthjIWzE.svg)](https://asciinema.org/a/t1NyvcQycmuSpdtRHRthjIWzE)
