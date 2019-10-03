@@ -25,7 +25,7 @@ use function cli\prompt;
  */
 function progressionQuestion($progression)
 {
-    $str = implode(', ', $progression);
+    $str = implode(' ', $progression);
     $userValue = +prompt("Question: {$str}");
     return $userValue;
 }
