@@ -21,5 +21,5 @@ namespace BrainGames\Generator;
  */
 function generate()
 {
-    return rand(1, 99);
+    return mt_rand(1, 99);
 }

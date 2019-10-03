@@ -22,6 +22,10 @@ use function BrainGames\Even\isEven;
 use function BrainGames\Gcd\gcd;
 use function BrainGames\Gcd\gcdQuestion;
 use function BrainGames\Generator\generate;
+use function BrainGames\Progression\getIndex;
+use function BrainGames\Progression\getProgression;
+use function BrainGames\Progression\getProgressionWithHideIndex;
+use function BrainGames\Progression\progressionQuestion;
 use function cli\line;
 use function cli\prompt;
 
@@ -82,6 +86,12 @@ function changeGame($game = 'nogame')
         $num2 = generate();
         $values['userValue'] = gcdQuestion($num1, $num2);
         $values['corAnswer'] = gcd($num1, $num2);
+    } elseif ($game === 'progression') {
+        $index = getIndex();
+        $progression = getProgression();
+        $progressionString = getProgressionWithHideIndex($index, $progression);
+        $values['userValue'] = progressionQuestion($progressionString);
+        $values['corAnswer'] = $progression[$index];
     }
     return $values;
 }
@@ -101,6 +111,8 @@ function greeting($game)
         line("What is the result of the expression?");
     } elseif ($game === 'gcd') {
         line("Find the greatest common divisor of given numbers.");
+    } elseif ($game === 'progression') {
+        line("What number is missing in the progression?");
     } else {
         line("This is the collection of Brain Games");
     }
