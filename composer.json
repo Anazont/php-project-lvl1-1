@@ -17,6 +17,7 @@
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
+        "bin/brain-prime",
         "bin/brain-progression"
     ],
     "autoload": {
@@ -25,6 +26,7 @@
                 "games/calc.php",
                 "games/gcd.php",
                 "games/progression.php",
+                "games/prime.php",
                 "src/generator.php"]
     },
     "require": {

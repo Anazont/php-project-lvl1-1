@@ -23,3 +23,13 @@ function generate()
 {
     return mt_rand(1, 99);
 }
+
+/**
+ * Function generate random value
+ *
+ * @return integer
+ */
+function generatePrime()
+{
+    return mt_rand(3, 3575);
+}

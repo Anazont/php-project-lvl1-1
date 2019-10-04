@@ -19,7 +19,7 @@ use function cli\prompt;
 /**
  * The function asks the user
  *
- * @param array $progression second random number
+ * @param array $progression random arithmetic progression
  *
  * @return integer
  */

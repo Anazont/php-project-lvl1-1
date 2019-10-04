@@ -22,6 +22,9 @@ use function BrainGames\Even\isEven;
 use function BrainGames\Gcd\gcd;
 use function BrainGames\Gcd\gcdQuestion;
 use function BrainGames\Generator\generate;
+use function BrainGames\Generator\generatePrime;
+use function BrainGames\Prime\isPrimeToStr;
+use function BrainGames\Prime\primeQuestion;
 use function BrainGames\Progression\getIndex;
 use function BrainGames\Progression\getProgression;
 use function BrainGames\Progression\getProgressionWithHideIndex;
@@ -92,15 +95,19 @@ function changeGame($game = 'nogame')
         $progressionString = getProgressionWithHideIndex($index, $progression);
         $values['userValue'] = progressionQuestion($progressionString);
         $values['corAnswer'] = $progression[$index];
+    } elseif ($game === 'prime') {
+        $num = generatePrime();
+        $values['userValue'] = primeQuestion($num);
+        $values['corAnswer'] = isPrimeToStr($num);
     }
     return $values;
 }
 
 /**
  * Function change greeting message for various games
- * 
+ *
  * @param string $game type of game
- * 
+ *
  * @return string message
  */
 function greeting($game)
@@ -113,6 +120,8 @@ function greeting($game)
         line("Find the greatest common divisor of given numbers.");
     } elseif ($game === 'progression') {
         line("What number is missing in the progression?");
+    } elseif ($game === 'prime') {
+        line("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     } else {
         line("This is the collection of Brain Games");
     }
