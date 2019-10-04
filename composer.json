@@ -1,6 +1,8 @@
 {
     "name": "rinatsin/php-project-lvl1",
+    "type": "php-project",
     "description": "PHP Project implements the Brain Games",
+    "keywords": ["php", "games", "brain", "cli"],
     "authors": [
         {
             "name": "rinat salimyanov",
