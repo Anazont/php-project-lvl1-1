@@ -26,9 +26,9 @@ use function BrainGames\Cli\run;
  *
  * @return integer the greatest common divisor of given numbers
  */
-function getgGcd($num1, $num2)
+function getGcd($num1, $num2)
 {
-    return $num2 ? gcd($num2, $num1 % $num2) : $num1;
+    return $num2 ? getGcd($num2, $num1 % $num2) : $num1;
 }
 
 /**
@@ -43,7 +43,7 @@ function gcd()
     for ($i = 0; $i < 3; $i++) {
         $num1 = mt_rand(1, 99);
         $num2 = mt_rand(1, 99);
-        $curAnswer = strval(getgGcd($num1, $num2));
+        $curAnswer = strval(getGcd($num1, $num2));
         $question = "{$num1} {$num2}";
         flow($name, $question, $curAnswer);
     }
