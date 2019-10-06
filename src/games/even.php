@@ -32,7 +32,7 @@ function isEven($num)
 
 /**
  * The function is run game even
- * 
+ *
  * @return string
  */
 function even()

@@ -82,4 +82,3 @@ function userAnswer($question)
     $userValue = prompt("Question: {$question}");
     return $userValue;
 }
-

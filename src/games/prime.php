@@ -53,7 +53,7 @@ function isPrime($num)
 
 /**
  * Function run game Prime number
- * 
+ *
  * @return void
  */
 function prime()

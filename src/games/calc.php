@@ -30,22 +30,22 @@ use function BrainGames\Cli\run;
 function calculate($num1, $num2, $operation)
 {
     switch ($operation) {
-    case '+':
-        $corAnswer = $num1 + $num2;
-        break;
-    case '-':
-        $corAnswer = $num1 - $num2;
-        break;
-    case '*':
-        $corAnswer = $num1 * $num2;
-        break;
+        case '+':
+            $corAnswer = $num1 + $num2;
+            break;
+        case '-':
+            $corAnswer = $num1 - $num2;
+            break;
+        case '*':
+            $corAnswer = $num1 * $num2;
+            break;
     }
     return $corAnswer;
 }
 
 /**
  * Function run game brain-calc
- * 
+ *
  * @return void
  */
 function calc()

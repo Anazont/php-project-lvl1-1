@@ -22,8 +22,8 @@ use function BrainGames\Cli\run;
  * Function generate random arithmetic progression
  *
  * @param int $firstValue first value of progression
- * @param int $diff       progression step 
- * 
+ * @param int $diff       progression step
+ *
  * @return array
  */
 function getProgression($firstValue, $diff)
@@ -55,7 +55,7 @@ function getProgressionWithHideIndex($index, $progression)
 
 /**
  * Function run game arithmetic progression
- * 
+ *
  * @return void
  */
 function progression()
