@@ -45,8 +45,8 @@ function run($greeting = "")
 function flow($name, $question, $curAnswer)
 {
     $userAnswer = userAnswer($question);
-    if ($userAnswer !== 'yes' || $userAnswer !== 'no') {
-        $userAnswer *= 1;
+    if ($userAnswer != "yes" || $userAnswer != "no") {
+        $userAnswer = +$userAnswer;
     }
     if ($userAnswer !== $curAnswer) {
         line(" '%s' is wrong answer ;(.", $userAnswer);
