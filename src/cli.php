@@ -14,114 +14,72 @@
 
 namespace BrainGames\Cli;
 
-use function BrainGames\Calc\calcQuestion;
-use function BrainGames\Calc\calculate;
-use function BrainGames\Even\evenQuestion;
-use function BrainGames\Even\isEven;
-use function BrainGames\Gcd\gcd;
-use function BrainGames\Gcd\gcdQuestion;
-use function BrainGames\Generator\generate;
-use function BrainGames\Generator\generatePrime;
-use function BrainGames\Prime\isPrimeToStr;
-use function BrainGames\Prime\primeQuestion;
-use function BrainGames\Progression\getIndex;
-use function BrainGames\Progression\getProgression;
-use function BrainGames\Progression\getProgressionWithHideIndex;
-use function BrainGames\Progression\progressionQuestion;
 use function cli\line;
 use function cli\prompt;
 
-//const ROUNDS = 3;
 
 /**
  * This function start this project
  *
- * @param string $game type og Game
+ * @param string $greeting string of Greeting
+ *
+ * @return string
+ */
+function run($greeting = "")
+{
+    line("Welcome To The Brain Games!");
+    line($greeting);
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
+    return $name;
+}
+
+/**
+ * This function start this project
+ *
+ * @param string $name      string of Name
+ * @param string $question  show user question value
+ * @param string $curAnswer true answer for the compare
  *
  * @return void
  */
-function run($game = 'nogame')
+function flow($name, $question, $curAnswer)
 {
-    line("Welcome To The Brain Games!");
-    greeting($game);
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    if ($game === 'nogame') {
+    $userAnswer = userAnswer($question);
+    if ($userAnswer !== 'yes' || $userAnswer !== 'no') {
+        $userAnswer *= 1;
+    }
+    if ($userAnswer !== $curAnswer) {
+        line(" '%s' is wrong answer ;(.", $userAnswer);
+        line("Correct answer was '%s'.Let's try again, %s!", $curAnswer, $name);
         exit;
-    }
-    for ($i = 0; $i < 3; $i++) {
-        $values = changeGame($game);
-        if ($values['userValue'] !== $values['corAnswer']) {
-            line(" '%s' is wrong answer ;(.", $values['userValue']);
-            line("Correct answer was '%s'.Let's try again, %s!", $values['corAnswer'], $name);
-            exit;
-        } else {
-            line("Correct!");
-        }
-    }
-        line("Congratulations, %s", $name);
-}
-
-/**
- * This function change type of game
- *
- * @param string $game type of Game
- *
- * @return array
- */
-function changeGame($game = 'nogame')
-{
-    $values = [];
-    if ($game === 'even') {
-        $num = generate();
-        $values['userValue'] = evenQuestion($num);
-        $values['corAnswer'] = isEven($num);
-    } elseif ($game === 'calc') {
-        $operations = ['+', '-', '*'];
-        $num1 = generate();
-        $num2 = generate();
-        $operation = $operations[array_rand($operations)];
-        $values['userValue'] = calcQuestion($num1, $num2, $operation);
-        $values['corAnswer'] = calculate($num1, $num2, $operation);
-    } elseif ($game === 'gcd') {
-        $num1 = generate();
-        $num2 = generate();
-        $values['userValue'] = gcdQuestion($num1, $num2);
-        $values['corAnswer'] = gcd($num1, $num2);
-    } elseif ($game === 'progression') {
-        $index = getIndex();
-        $progression = getProgression();
-        $progressionString = getProgressionWithHideIndex($index, $progression);
-        $values['userValue'] = progressionQuestion($progressionString);
-        $values['corAnswer'] = $progression[$index];
-    } elseif ($game === 'prime') {
-        $num = generatePrime();
-        $values['userValue'] = primeQuestion($num);
-        $values['corAnswer'] = isPrimeToStr($num);
-    }
-    return $values;
-}
-
-/**
- * Function change greeting message for various games
- *
- * @param string $game type of game
- *
- * @return string message
- */
-function greeting($game)
-{
-    if ($game === 'even') {
-        line("Answer 'yes' if the number is even, otherwise answer 'no'.");
-    } elseif ($game === 'calc') {
-        line("What is the result of the expression?");
-    } elseif ($game === 'gcd') {
-        line("Find the greatest common divisor of given numbers.");
-    } elseif ($game === 'progression') {
-        line("What number is missing in the progression?");
-    } elseif ($game === 'prime') {
-        line("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     } else {
-        line("This is the collection of Brain Games");
+        line("Correct!");
     }
 }
+
+/**
+ * This function start this project
+ *
+ * @param string $name string of Name
+ *
+ * @return void
+ */
+function endGame($name)
+{
+    line("Congratulations, %s", $name);
+}
+
+/**
+ * The function asks the user question
+ *
+ * @param integer $question random number
+ *
+ * @return integer
+ */
+function userAnswer($question)
+{
+    $userValue = prompt("Question: {$question}");
+    return $userValue;
+}
+
