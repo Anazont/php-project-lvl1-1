@@ -57,7 +57,7 @@ function calc()
         $operation = $operations[array_rand($operations)];
         $num1 = mt_rand(1, 99);
         $num2 = mt_rand(1, 99);
-        $curAnswer = calculate($num1, $num2, $operation);
+        $curAnswer = strval(calculate($num1, $num2, $operation));
         $question = "{$num1}{$operation}{$num2}";
         flow($name, $question, $curAnswer);
     }
