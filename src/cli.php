@@ -31,7 +31,7 @@ use function BrainGames\Progression\progressionQuestion;
 use function cli\line;
 use function cli\prompt;
 
-const ROUNDS = 3;
+//const ROUNDS = 3;
 
 /**
  * This function start this project
@@ -49,7 +49,7 @@ function run($game = 'nogame')
     if ($game === 'nogame') {
         exit;
     }
-    for ($i = 0; $i < ROUNDS; $i++) {
+    for ($i = 0; $i < 3; $i++) {
         $values = changeGame($game);
         if ($values['userValue'] !== $values['corAnswer']) {
             line(" '%s' is wrong answer ;(.", $values['userValue']);
