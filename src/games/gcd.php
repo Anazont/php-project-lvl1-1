@@ -43,7 +43,7 @@ function gcd()
     for ($i = 0; $i < 3; $i++) {
         $num1 = mt_rand(1, 99);
         $num2 = mt_rand(1, 99);
-        $curAnswer = getgGcd($num1, $num2);
+        $curAnswer = strval(getgGcd($num1, $num2));
         $question = "{$num1} {$num2}";
         flow($name, $question, $curAnswer);
     }

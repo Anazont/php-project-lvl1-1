@@ -68,7 +68,7 @@ function progression()
         $diff = mt_rand(1, 25);
         $progression = getProgression($firstValue, $diff);
         $question = implode(' ', getProgressionWithHideIndex($index, $progression));
-        $curAnswer = $progression[$index];
+        $curAnswer = strval($progression[$index]);
         flow($name, $question, $curAnswer);
     }
     endGame($name);
