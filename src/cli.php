@@ -16,13 +16,14 @@ namespace BrainGames\Cli;
 
 use function cli\line;
 use function cli\prompt;
+use function BrainGames\Even\even;
 
 const ROUNDS = 3;
 
 /**
  * Function run game
  *
- * @param callable $game save game param to variable
+ * @param string $game save game param to variable
  *
  * @return void
  */
