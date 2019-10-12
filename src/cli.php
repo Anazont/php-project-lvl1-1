@@ -26,7 +26,7 @@ const ROUNDS = 3;
  *
  * @return void
  */
-function run(callable $game)
+function run($game)
 {
     $arrGame = $game();
     greeting($arrGame['greeting']);
