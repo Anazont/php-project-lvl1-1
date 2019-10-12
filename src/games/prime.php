@@ -20,19 +20,6 @@ use function BrainGames\Cli\run;
 use function cli\prompt;
 
 /**
- * The function asks the user the number is prime
- *
- * @param integer $num random number
- *
- * @return integer
- */
-function primeQuestion($num)
-{
-    $userValue = prompt("Question: {$num}");
-    return $userValue;
-}
-
-/**
  * The function checks the number is prime
  *
  * @param integer $num random number

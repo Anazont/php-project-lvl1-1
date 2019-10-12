@@ -14,8 +14,6 @@
 
 namespace BrainGames\Even;
 
-use function BrainGames\Cli\endGame;
-use function BrainGames\Cli\flow;
 use function BrainGames\Cli\run;
 
 /**
@@ -37,17 +35,20 @@ function isEven($num)
  */
 function even()
 {
-    $greeting = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    $name = run($greeting);
-    for ($i = 0; $i < 3; $i++) {
-        $num = mt_rand(1, 99);
-        if (isEven($num)) {
-            $curAnswer = "yes";
-        } else {
-            $curAnswer = "no";
-        }
-        $question = strval($num);
-        flow($name, $question, $curAnswer);
-    }
-    endGame($name);
+    $arrGame = [];
+    $arrGame['greeting'] = "Answer 'yes' if the number is even, other answer 'no'.";
+    $num = mt_rand(1, 99);
+    $arrGame['currentAnswer'] = isEven($num) ? "yes" : "no";
+    $arrGame['question'] = strval($num);
+    return $arrGame;
+}
+
+/**
+ * Function run game
+ *
+ * @return void
+ */
+function runEven()
+{
+    run(even());
 }

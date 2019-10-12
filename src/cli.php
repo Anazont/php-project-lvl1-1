@@ -17,6 +17,26 @@ namespace BrainGames\Cli;
 use function cli\line;
 use function cli\prompt;
 
+const ROUNDS = 3;
+
+/**
+ * Function run game
+ *
+ * @param callable $game save game param to variable
+ *
+ * @return void
+ */
+function run(callable $game)
+{
+    $arrGame = $game();
+    greeting($arrGame['greeting']);
+    $name = getUsername();
+    for ($i = 0; $i < ROUNDS; $i++) {
+        flow($name, $arrGame['question'], $arrGame['currentAnswer']);
+        $arrGame = $game();
+    }
+    endGame($name);
+}
 /**
  * This function start this project
  *
@@ -24,10 +44,19 @@ use function cli\prompt;
  *
  * @return string
  */
-function run($greeting = "")
+function greeting($greeting = "")
 {
     line("Welcome To The Brain Games!");
     line($greeting);
+}
+
+/**
+ * Function ask the name of User
+ *
+ * @return string username
+ */
+function getUsername()
+{
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     return $name;
@@ -36,18 +65,18 @@ function run($greeting = "")
 /**
  * This function start this project
  *
- * @param string $name      string of Name
- * @param string $question  show user question value
- * @param string $curAnswer true answer for the compare
+ * @param string $name          string of Name
+ * @param string $question      show user question value
+ * @param string $currentAnswer true answer for the compare
  *
  * @return void
  */
-function flow($name, $question, $curAnswer)
+function flow($name, $question, $currentAnswer)
 {
     $userAnswer = userAnswer($question);
-    if ($userAnswer !== $curAnswer) {
+    if ($userAnswer !== $currentAnswer) {
         line(" '%s' is wrong answer ;(.", $userAnswer);
-        line("Correct answer was '%s'.Let's try again, %s!", $curAnswer, $name);
+        line("Correct answer was '%s'.Let's try again, %s!", $currentAnswer, $name);
         exit;
     } else {
         line("Correct!");

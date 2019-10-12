@@ -23,13 +23,14 @@ use function BrainGames\Cli\run;
  *
  * @param int $firstValue first value of progression
  * @param int $diff       progression step
+ * @param int $length     length of progression
  *
  * @return array
  */
-function getProgression($firstValue, $diff)
+function getProgression($firstValue, $diff, $length)
 {
     $progression = [];
-    for ($i = 0; $i < 10; $i++) {
+    for ($i = 0; $i < $length; $i++) {
         if (empty($progression)) {
             $progression[] = $firstValue;
         } else {
@@ -63,13 +64,13 @@ function progression()
     $greeting = "What number is missing in the progression?";
     $name = run($greeting);
     for ($i = 0; $i < 3; $i++) {
-        $index = mt_rand(0, 9);
+        $hideElementIndex = mt_rand(0, 9);
         $firstValue = mt_rand(1, 35);
         $diff = mt_rand(1, 25);
-        $progression = getProgression($firstValue, $diff);
-        $question = implode(' ', getProgressionWithHideIndex($index, $progression));
-        $curAnswer = strval($progression[$index]);
-        flow($name, $question, $curAnswer);
+        $progression = getProgression($firstValue, $diff, 10);
+        $question = implode(' ', getProgressionWithHideIndex($hideElementIndex, $progression));
+        $currentAnswer = strval($progression[$hideElementIndex]);
+        flow($name, $question, $currentAnswer);
     }
     endGame($name);
 }
