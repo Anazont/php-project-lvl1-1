@@ -29,12 +29,12 @@ const ROUNDS = 3;
  */
 function run($game)
 {
-    $arrGame = $game();
+    $arrGame = call_user_func($game);
     greeting($arrGame['greeting']);
     $name = getUsername();
     for ($i = 0; $i < ROUNDS; $i++) {
         flow($name, $arrGame['question'], $arrGame['currentAnswer']);
-        $arrGame = $game();
+        $arrGame = call_user_func($game);
     }
     endGame($name);
 }
