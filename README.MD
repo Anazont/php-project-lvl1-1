@@ -3,6 +3,14 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/f7e3b5ab080fbe0282be/maintainability)](https://codeclimate.com/github/Rinatsin/php-project-lvl1/maintainability)
 [![Build Status](https://travis-ci.org/Rinatsin/php-project-lvl1.svg?branch=master)](https://travis-ci.org/Rinatsin/php-project-lvl1)
 
+Этот репозиторий содержит реализацию первого проекта обучающего портала Hexlet, Brain Games! В проекте представлено 5 мини игр командной строки:
+* brain-even  -  проверка на четность
+* brain-calc  -  калькулятор 
+* brain-gcd  -  наибольший общий делитель
+* brain-progression  -  арифметическая прогрессия
+* brain-prime  -  Является ли число простым
+Для запуска игры достаточно ввести название игры в командной строке.
+
 ### Install with Composer
 
 1. use **composer global require rinatsin/php-project-lvl1**
