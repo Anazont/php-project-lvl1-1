@@ -38,7 +38,7 @@ function run($game)
     endGame($name);
 }
 /**
- * This function start this project
+ * This function greeting user
  *
  * @param string $greeting string of Greeting
  *
@@ -63,7 +63,7 @@ function getUsername()
 }
 
 /**
- * This function start this project
+ * This function release main engine in the progect
  *
  * @param string $name          string of Name
  * @param string $question      show user question value
@@ -84,7 +84,7 @@ function flow($name, $question, $currentAnswer)
 }
 
 /**
- * This function start this project
+ * This function print congratulation in the end
  *
  * @param string $name string of Name
  *

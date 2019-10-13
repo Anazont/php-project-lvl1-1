@@ -14,10 +14,6 @@
 
 namespace BrainGames\Calc;
 
-use function BrainGames\Cli\endGame;
-use function BrainGames\Cli\flow;
-use function BrainGames\Cli\run;
-
 /**
  * Function calculate two numbers
  *
@@ -44,22 +40,29 @@ function calculate($num1, $num2, $operation)
 }
 
 /**
- * Function run game brain-calc
+ * Function generate params for game brain-calc
  *
- * @return void
+ * @return array
  */
 function calc()
 {
-    $greeting = "What is the result of the expression?";
-    $name = run($greeting);
+    $arrGame = [];
+    $arrGame['greeting'] = "What is the result of the expression?";
     $operations = ['+', '-', '*'];
-    for ($i = 0; $i < 3; $i++) {
-        $operation = $operations[array_rand($operations)];
-        $num1 = mt_rand(1, 99);
-        $num2 = mt_rand(1, 99);
-        $curAnswer = strval(calculate($num1, $num2, $operation));
-        $question = "{$num1}{$operation}{$num2}";
-        flow($name, $question, $curAnswer);
-    }
-    endGame($name);
+    $operation = $operations[array_rand($operations)];
+    $num1 = mt_rand(1, 99);
+    $num2 = mt_rand(1, 99);
+    $arrGame['curAnswer'] = strval(calculate($num1, $num2, $operation));
+    $arrGame['question'] = "{$num1}{$operation}{$num2}";
+    return $arrGame;
+}
+
+/**
+ * Function run game
+ *
+ * @return void
+ */
+function runEven()
+{
+    run(__NAMESPACE__ . '\calc');
 }
