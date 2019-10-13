@@ -16,7 +16,6 @@ namespace BrainGames\Cli;
 
 use function cli\line;
 use function cli\prompt;
-use function BrainGames\Even\even;
 
 const ROUNDS = 3;
 
@@ -29,12 +28,12 @@ const ROUNDS = 3;
  */
 function run($game)
 {
-    $arrGame = even();//call_user_func($game);
+    $arrGame = call_user_func($game);
     greeting($arrGame['greeting']);
     $name = getUsername();
     for ($i = 0; $i < ROUNDS; $i++) {
         flow($name, $arrGame['question'], $arrGame['currentAnswer']);
-        $arrGame = even();//call_user_func($game);
+        $arrGame = call_user_func($game);
     }
     endGame($name);
 }
