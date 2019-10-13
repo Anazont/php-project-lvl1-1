@@ -54,7 +54,7 @@ function calc()
     $operation = $operations[array_rand($operations)];
     $num1 = mt_rand(1, 99);
     $num2 = mt_rand(1, 99);
-    $arrGame['curAnswer'] = strval(calculate($num1, $num2, $operation));
+    $arrGame['currentAnswer'] = strval(calculate($num1, $num2, $operation));
     $arrGame['question'] = "{$num1}{$operation}{$num2}";
     return $arrGame;
 }
