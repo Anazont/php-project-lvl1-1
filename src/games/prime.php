@@ -14,7 +14,7 @@
 
 namespace BrainGames\Prime;
 
-use function BrainGames\Cli\run;
+use function BrainGames\Engine\run;
 
 /**
  * The function checks the number is prime

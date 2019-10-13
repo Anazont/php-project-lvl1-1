@@ -22,7 +22,7 @@
         "bin/brain-progression"
     ],
     "autoload": {
-        "files": ["src/cli.php",
+        "files": ["src/engine.php",
             "src/games/even.php",
             "src/games/calc.php",
             "src/games/gcd.php",

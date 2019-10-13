@@ -14,7 +14,7 @@
 
 namespace BrainGames\Even;
 
-use function BrainGames\Cli\run;
+use function BrainGames\Engine\run;
 
 /**
  * The function is expect the nunber is even

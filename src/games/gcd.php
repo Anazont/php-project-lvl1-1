@@ -14,7 +14,7 @@
 
 namespace BrainGames\Gcd;
 
-use function BrainGames\Cli\run;
+use function BrainGames\Engine\run;
 
 /**
  * The function is expect the number is even

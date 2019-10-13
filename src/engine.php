@@ -12,7 +12,7 @@
  * @link     https://github.com/Rinatsin/php-project-lvl1
  */
 
-namespace BrainGames\Cli;
+namespace BrainGames\Engine;
 
 use function cli\line;
 use function cli\prompt;
@@ -47,6 +47,9 @@ function run($game)
 function greeting($greeting = "")
 {
     line("Welcome To The Brain Games!");
+    if ($greeting === "") {
+        exit;
+    }
     line($greeting);
 }
 

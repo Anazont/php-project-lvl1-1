@@ -14,7 +14,7 @@
 
 namespace BrainGames\Progression;
 
-use function BrainGames\Cli\run;
+use function BrainGames\Engine\run;
 
 /**
  * Function generate random arithmetic progression
@@ -72,7 +72,7 @@ function progression()
 
 /**
  * Function run game progression
- * 
+ *
  * @return void
  */
 function runProgression()
