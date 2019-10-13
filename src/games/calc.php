@@ -14,6 +14,8 @@
 
 namespace BrainGames\Calc;
 
+use function BrainGames\Cli\run;
+
 /**
  * Function calculate two numbers
  *
