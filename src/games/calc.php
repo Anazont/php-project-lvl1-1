@@ -62,7 +62,7 @@ function calc()
  *
  * @return void
  */
-function runEven()
+function runCalc()
 {
     run(__NAMESPACE__ . '\calc');
 }
