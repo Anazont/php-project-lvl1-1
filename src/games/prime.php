@@ -14,10 +14,7 @@
 
 namespace BrainGames\Prime;
 
-use function BrainGames\Cli\endGame;
-use function BrainGames\Cli\flow;
 use function BrainGames\Cli\run;
-use function cli\prompt;
 
 /**
  * The function checks the number is prime
@@ -39,23 +36,26 @@ function isPrime($num)
 }
 
 /**
- * Function run game Prime number
+ * Function generate params for game Prime
  *
  * @return void
  */
 function prime()
 {
-    $greeting = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    $name = run($greeting);
-    for ($i = 0; $i < 3; $i++) {
-        $num = mt_rand(3, 65565);
-        if (isPrime($num)) {
-            $curAnswer = 'yes';
-        } else {
-            $curAnswer = 'no';
-        }
-        $question = strval($num);
-        flow($name, $question, $curAnswer);
-    }
-    endGame($name);
+    $gameParams = [];
+    $gameParams['greeting'] = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    $num = mt_rand(3, 65565);
+    $gameParams['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
+    $gameParams['question'] = strval($num);
+    return $gameParams;
+}
+
+/**
+ * Function run game prime
+ *
+ * @return void
+ */
+function runPrime()
+{
+    run(__NAMESPACE__ . '\prime');
 }
