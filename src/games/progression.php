@@ -14,8 +14,6 @@
 
 namespace BrainGames\Progression;
 
-use function BrainGames\Cli\endGame;
-use function BrainGames\Cli\flow;
 use function BrainGames\Cli\run;
 
 /**
@@ -55,22 +53,29 @@ function getProgressionWithHideIndex($index, $progression)
 }
 
 /**
- * Function run game arithmetic progression
+ * Function run generate params for game progression
  *
- * @return void
+ * @return array
  */
 function progression()
 {
-    $greeting = "What number is missing in the progression?";
-    $name = run($greeting);
-    for ($i = 0; $i < 3; $i++) {
-        $hideElementIndex = mt_rand(0, 9);
-        $firstValue = mt_rand(1, 35);
-        $diff = mt_rand(1, 25);
-        $progression = getProgression($firstValue, $diff, 10);
-        $question = implode(' ', getProgressionWithHideIndex($hideElementIndex, $progression));
-        $currentAnswer = strval($progression[$hideElementIndex]);
-        flow($name, $question, $currentAnswer);
-    }
-    endGame($name);
+    $gameParams = [];
+    $gameParams['greeting'] = "What number is missing in the progression?";
+    $hideElementIndex = mt_rand(0, 9);
+    $firstValue = mt_rand(1, 35);
+    $diff = mt_rand(1, 25);
+    $progression = getProgression($firstValue, $diff, 10);
+    $gameParams['question'] = implode(' ', getProgressionWithHideIndex($hideElementIndex, $progression));
+    $gameParams['currentAnswer'] = strval($progression[$hideElementIndex]);
+    return $gameParams;
+}
+
+/**
+ * Function run game progression
+ * 
+ * @return void
+ */
+function runProgression()
+{
+    run(__NAMESPACE__ . '\progression');
 }

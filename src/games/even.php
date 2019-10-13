@@ -35,12 +35,12 @@ function isEven($num)
  */
 function even()
 {
-    $arrGame = [];
-    $arrGame['greeting'] = "Answer 'yes' if the number is even, other answer 'no'.";
+    $gameParams = [];
+    $gameParams['greeting'] = "Answer 'yes' if the number is even, other answer 'no'.";
     $num = mt_rand(1, 99);
-    $arrGame['currentAnswer'] = isEven($num) ? "yes" : "no";
-    $arrGame['question'] = strval($num);
-    return $arrGame;
+    $gameParams['currentAnswer'] = isEven($num) ? "yes" : "no";
+    $gameParams['question'] = strval($num);
+    return $gameParams;
 }
 
 /**
