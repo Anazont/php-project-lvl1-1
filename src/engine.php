@@ -22,7 +22,7 @@ const ROUNDS = 3;
 /**
  * Function run game
  *
- * @param string $game save game param to variable
+ * @param array $game save game param to variable
  *
  * @return void
  */
@@ -47,9 +47,6 @@ function run($game)
 function greeting($greeting = "")
 {
     line("Welcome To The Brain Games!");
-    if ($greeting === "") {
-        exit;
-    }
     line($greeting);
 }
 
