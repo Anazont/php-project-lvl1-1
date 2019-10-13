@@ -14,12 +14,10 @@
 
 namespace BrainGames\Gcd;
 
-use function BrainGames\Cli\endGame;
-use function BrainGames\Cli\flow;
 use function BrainGames\Cli\run;
 
 /**
- * The function is expect the nunber is even
+ * The function is expect the number is even
  *
  * @param integer $num1 first random number
  * @param integer $num2 second random number
@@ -38,14 +36,21 @@ function getGcd($num1, $num2)
  */
 function gcd()
 {
-    $greeting = "Find the greatest common divisor of given numbers.";
-    $name = run($greeting);
-    for ($i = 0; $i < 3; $i++) {
-        $num1 = mt_rand(1, 99);
-        $num2 = mt_rand(1, 99);
-        $curAnswer = strval(getGcd($num1, $num2));
-        $question = "{$num1} {$num2}";
-        flow($name, $question, $curAnswer);
-    }
-    endGame($name);
+    $gameParams = [];
+    $gameParams['greeting'] = "Find the greatest common divisor of given numbers.";
+    $num1 = mt_rand(1, 99);
+    $num2 = mt_rand(1, 99);
+    $gameParams['currentAnswer'] = strval(getGcd($num1, $num2));
+    $gameParams['question'] = "{$num1} {$num2}";
+    return $gameParams;
+}
+
+/**
+ * Function run game gcd
+ *
+ * @return void
+ */
+function runGcd()
+{
+    run(__NAMESPACE__ . '\gcd');
 }

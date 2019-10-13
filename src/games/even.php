@@ -44,7 +44,7 @@ function even()
 }
 
 /**
- * Function run game
+ * Function run game even
  *
  * @return void
  */
