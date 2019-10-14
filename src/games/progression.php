@@ -16,6 +16,8 @@ namespace BrainGames\Progression;
 
 use function BrainGames\Engine\run;
 
+const GAME_RULES = "What number is missing in the progression?";
+
 /**
  * Function generate random arithmetic progression
  *
@@ -60,7 +62,6 @@ function getProgressionWithHideIndex($index, $progression)
 function progression()
 {
     $gameParams = [];
-    $gameParams['greeting'] = "What number is missing in the progression?";
     $hideElementIndex = mt_rand(0, 9);
     $firstValue = mt_rand(1, 35);
     $diff = mt_rand(1, 25);
@@ -77,5 +78,5 @@ function progression()
  */
 function runProgression()
 {
-    run(__NAMESPACE__ . '\progression');
+    run(__NAMESPACE__ . '\progression', GAME_RULES);
 }

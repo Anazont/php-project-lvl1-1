@@ -46,7 +46,6 @@ function isPrime($num)
 function prime()
 {
     $gameParams = [];
-    //$gameParams['greeting'] = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     $num = mt_rand(3, 65565);
     $gameParams['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
     $gameParams['question'] = strval($num);
@@ -62,7 +61,4 @@ function runPrime()
 {
     run(__NAMESPACE__ . '\prime', GAME_RULES);
 }
-
-/*php:
-    - '7.3'*/
     

@@ -22,14 +22,15 @@ const ROUNDS = 3;
 /**
  * Function run game
  *
- * @param array $game save game param to variable
+ * @param array  $game      save game param to variable
+ * @param string $gameRules save game rules
  *
  * @return void
  */
 function run($game, $gameRules)
 {
     $gameParams = call_user_func($game);
-    greeting($gameRules);//$gameParams['greeting']);
+    greeting($gameRules);
     $name = getUsername();
     for ($i = 0; $i < ROUNDS; $i++) {
         flow($name, $gameParams['question'], $gameParams['currentAnswer']);
@@ -47,6 +48,9 @@ function run($game, $gameRules)
 function greeting($greeting = "")
 {
     line("Welcome To The Brain Games!");
+    if ($greeting === "") {
+        exit;
+    }
     line($greeting);
 }
 

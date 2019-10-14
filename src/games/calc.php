@@ -16,6 +16,7 @@ namespace BrainGames\Calc;
 
 use function BrainGames\Engine\run;
 
+const GAME_RULES = "What is the result of the expression?";
 /**
  * Function calculate two numbers
  *
@@ -49,7 +50,6 @@ function calculate($num1, $num2, $operation)
 function calc()
 {
     $arrGame = [];
-    $arrGame['greeting'] = "What is the result of the expression?";
     $operations = ['+', '-', '*'];
     $operation = $operations[array_rand($operations)];
     $num1 = mt_rand(1, 99);
@@ -66,5 +66,5 @@ function calc()
  */
 function runCalc()
 {
-    run(__NAMESPACE__ . '\calc');
+    run(__NAMESPACE__ . '\calc', GAME_RULES);
 }

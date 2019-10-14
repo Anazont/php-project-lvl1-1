@@ -16,6 +16,8 @@ namespace BrainGames\Even;
 
 use function BrainGames\Engine\run;
 
+const GAME_RULES = "Answer 'yes' if the number is even, other answer 'no'.";
+
 /**
  * The function is expect the nunber is even
  *
@@ -36,7 +38,6 @@ function isEven($num)
 function even()
 {
     $gameParams = [];
-    $gameParams['greeting'] = "Answer 'yes' if the number is even, other answer 'no'.";
     $num = mt_rand(1, 99);
     $gameParams['currentAnswer'] = isEven($num) ? "yes" : "no";
     $gameParams['question'] = strval($num);
@@ -50,5 +51,5 @@ function even()
  */
 function runEven()
 {
-    run(__NAMESPACE__ . '\even');
+    run(__NAMESPACE__ . '\even', GAME_RULES);
 }
