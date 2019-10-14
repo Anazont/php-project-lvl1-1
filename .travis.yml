@@ -1,7 +1,5 @@
 language: php
-php:
-    - '7.3'
-    
+
 install:
     - make install
 

@@ -26,10 +26,10 @@ const ROUNDS = 3;
  *
  * @return void
  */
-function run($game)
+function run($game, $gameRules)
 {
     $gameParams = call_user_func($game);
-    greeting($gameParams['greeting']);
+    greeting($gameRules);//$gameParams['greeting']);
     $name = getUsername();
     for ($i = 0; $i < ROUNDS; $i++) {
         flow($name, $gameParams['question'], $gameParams['currentAnswer']);
