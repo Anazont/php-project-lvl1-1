@@ -61,4 +61,3 @@ function runPrime()
 {
     run(__NAMESPACE__ . '\prime', GAME_RULES);
 }
-    
