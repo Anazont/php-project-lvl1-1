@@ -15,7 +15,7 @@
 ### Install with Composer
 
 1. use **composer global require rinatsin/php-project-lvl1**
-[![asciicast](https://asciinema.org/a/NwZj8bv0t19YFa6vsyvtxYee2.svg)](https://asciinema.org/a/NwZj8bv0t19YFa6vsyvtxYee2)
+[![asciicast](https://asciinema.org/a/IeLrXN1127cdjy3T1kWJv9g5z.svg)](https://asciinema.org/a/IeLrXN1127cdjy3T1kWJv9g5z)
 
 ### Example game Brain-even
 
