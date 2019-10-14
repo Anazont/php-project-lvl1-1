@@ -48,9 +48,6 @@ function run($game, $gameRules)
 function greeting($greeting = "")
 {
     line("Welcome To The Brain Games!");
-    if ($greeting === "") {
-        exit;
-    }
     line($greeting);
 }
 
