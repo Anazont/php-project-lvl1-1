@@ -52,8 +52,6 @@ function calculate($num1, $num2, $operation)
 function calc()
 {
     $gameData = [];
-    //$operations = ['+', '-', '*'];
-    //$operation = $operations[array_rand($operations)];
     $operation = OPERATIONS[array_rand(OPERATIONS)];
     $num1 = mt_rand(1, 99);
     $num2 = mt_rand(1, 99);
