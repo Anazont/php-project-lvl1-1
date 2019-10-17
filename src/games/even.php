@@ -51,4 +51,4 @@ function even()
 function runEven() 
 {
     run(__NAMESPACE__ . '\even', DESCRIPTION);
-};
+}
