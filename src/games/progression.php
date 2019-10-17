@@ -16,26 +16,22 @@ namespace BrainGames\Progression;
 
 use function BrainGames\Engine\run;
 
-const GAME_RULES = "What number is missing in the progression?";
+const DESCRIPTION = "What number is missing in the progression?";
 
 /**
  * Function generate random arithmetic progression
  *
- * @param int $firstValue first value of progression
- * @param int $diff       progression step
- * @param int $length     length of progression
+ * @param int $start  first value of progression
+ * @param int $diff   progression step
+ * @param int $length length of progression
  *
  * @return array
  */
-function getProgression($firstValue, $diff, $length)
+function getProgression($start, $diff, $length)
 {
     $progression = [];
     for ($i = 0; $i < $length; $i++) {
-        if (empty($progression)) {
-            $progression[] = $firstValue;
-        } else {
-            $progression[] = $progression[$i - 1] + $diff;
-        }
+        $progression[] = $start + $diff * $i;
     }
     return $progression;
 }
@@ -61,14 +57,14 @@ function getProgressionWithHideIndex($index, $progression)
  */
 function progression()
 {
-    $gameParams = [];
+    $gameData = [];
     $hideElementIndex = mt_rand(0, 9);
     $firstValue = mt_rand(1, 35);
     $diff = mt_rand(1, 25);
     $progression = getProgression($firstValue, $diff, 10);
-    $gameParams['question'] = implode(' ', getProgressionWithHideIndex($hideElementIndex, $progression));
-    $gameParams['currentAnswer'] = strval($progression[$hideElementIndex]);
-    return $gameParams;
+    $gameData['question'] = implode(' ', getProgressionWithHideIndex($hideElementIndex, $progression));
+    $gameData['currentAnswer'] = strval($progression[$hideElementIndex]);
+    return $gameData;
 }
 
 /**
@@ -78,5 +74,5 @@ function progression()
  */
 function runProgression()
 {
-    run(__NAMESPACE__ . '\progression', GAME_RULES);
+    run(__NAMESPACE__ . '\progression', DESCRIPTION);
 }

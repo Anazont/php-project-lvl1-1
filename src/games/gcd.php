@@ -16,7 +16,7 @@ namespace BrainGames\Gcd;
 
 use function BrainGames\Engine\run;
 
-const GAME_RULES = "Find the greatest common divisor of given numbers.";
+const DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
 /**
  * The function is expect the number is even
@@ -38,12 +38,12 @@ function getGcd($num1, $num2)
  */
 function gcd()
 {
-    $gameParams = [];
+    $gameData = [];
     $num1 = mt_rand(1, 99);
     $num2 = mt_rand(1, 99);
-    $gameParams['currentAnswer'] = strval(getGcd($num1, $num2));
-    $gameParams['question'] = "{$num1} {$num2}";
-    return $gameParams;
+    $gameData['currentAnswer'] = strval(getGcd($num1, $num2));
+    $gameData['question'] = "{$num1} {$num2}";
+    return $gameData;
 }
 
 /**
@@ -53,5 +53,5 @@ function gcd()
  */
 function runGcd()
 {
-    run(__NAMESPACE__ . '\gcd', GAME_RULES);
+    run(__NAMESPACE__ . '\gcd', DESCRIPTION);
 }

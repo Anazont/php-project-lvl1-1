@@ -17,38 +17,27 @@ namespace BrainGames\Engine;
 use function cli\line;
 use function cli\prompt;
 
-const ROUNDS = 3;
+const ROUNDS_COUNT = 3;
 
 /**
  * Function run game
  *
- * @param array  $game      save game param to variable
- * @param string $gameRules save game rules
+ * @param array  $game        save game param to variable
+ * @param string $description save game rules
  *
  * @return void
  */
-function run($game, $gameRules)
-{
-    $gameParams = call_user_func($game);
-    greeting($gameRules);
-    $name = getUsername();
-    for ($i = 0; $i < ROUNDS; $i++) {
-        flow($name, $gameParams['question'], $gameParams['currentAnswer']);
-        $gameParams = call_user_func($game);
-    }
-    endGame($name);
-}
-/**
- * This function greeting user
- *
- * @param string $greeting string of Greeting
- *
- * @return string
- */
-function greeting($greeting = "")
+function run($game, $description)
 {
     line("Welcome To The Brain Games!");
-    line($greeting);
+    line($description);
+    $gameData = call_user_func($game);
+    $name = getUsername();
+    for ($i = 0; $i < ROUNDS_COUNT; $i++) {
+        flow($name, $gameData['question'], $gameData['currentAnswer']);
+        $gameData = call_user_func($game);
+    }
+    line("Congratulations, %s", $name);
 }
 
 /**
@@ -85,18 +74,6 @@ function flow($name, $question, $currentAnswer)
 }
 
 /**
- * This function print congratulation in the end
- *
- * @param string $name string of Name
- *
- * @return void
- */
-function endGame($name)
-{
-    line("Congratulations, %s", $name);
-}
-
-/**
  * The function asks the user question
  *
  * @param integer $question random number
@@ -105,6 +82,6 @@ function endGame($name)
  */
 function userAnswer($question)
 {
-    $userValue = prompt("Question: {$question}");
-    return $userValue;
+    $userAnswer = prompt("Question: {$question}");
+    return $userAnswer;
 }

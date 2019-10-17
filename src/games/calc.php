@@ -16,7 +16,8 @@ namespace BrainGames\Calc;
 
 use function BrainGames\Engine\run;
 
-const GAME_RULES = "What is the result of the expression?";
+const DESCRIPTION = "What is the result of the expression?";
+
 /**
  * Function calculate two numbers
  *
@@ -30,16 +31,16 @@ function calculate($num1, $num2, $operation)
 {
     switch ($operation) {
         case '+':
-            $corAnswer = $num1 + $num2;
+            $currentAnswer = $num1 + $num2;
             break;
         case '-':
-            $corAnswer = $num1 - $num2;
+            $currentAnswer = $num1 - $num2;
             break;
         case '*':
-            $corAnswer = $num1 * $num2;
+            $currentAnswer = $num1 * $num2;
             break;
     }
-    return $corAnswer;
+    return $currentAnswer;
 }
 
 /**
@@ -49,14 +50,14 @@ function calculate($num1, $num2, $operation)
  */
 function calc()
 {
-    $arrGame = [];
+    $gameData = [];
     $operations = ['+', '-', '*'];
     $operation = $operations[array_rand($operations)];
     $num1 = mt_rand(1, 99);
     $num2 = mt_rand(1, 99);
-    $arrGame['currentAnswer'] = strval(calculate($num1, $num2, $operation));
-    $arrGame['question'] = "{$num1}{$operation}{$num2}";
-    return $arrGame;
+    $gameData['currentAnswer'] = strval(calculate($num1, $num2, $operation));
+    $gameData['question'] = "{$num1}{$operation}{$num2}";
+    return $gameData;
 }
 
 /**
@@ -66,5 +67,5 @@ function calc()
  */
 function runCalc()
 {
-    run(__NAMESPACE__ . '\calc', GAME_RULES);
+    run(__NAMESPACE__ . '\calc', DESCRIPTION);
 }

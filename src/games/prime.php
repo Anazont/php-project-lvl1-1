@@ -16,7 +16,7 @@ namespace BrainGames\Prime;
 
 use function BrainGames\Engine\run;
 
-const GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+const DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 /**
  * The function checks the number is prime
  *
@@ -26,6 +26,9 @@ const GAME_RULES = "Answer 'yes' if given number is prime. Otherwise answer 'no'
  */
 function isPrime($num)
 {
+    if ($num < 2) {
+        return $num > 2;
+    }
     //if the number is even then it is not prime
     if ($num % 2 === 0) {
         return $num === 2;
@@ -45,11 +48,11 @@ function isPrime($num)
  */
 function prime()
 {
-    $gameParams = [];
+    $gameData = [];
     $num = mt_rand(3, 65565);
-    $gameParams['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
-    $gameParams['question'] = strval($num);
-    return $gameParams;
+    $gameData['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
+    $gameData['question'] = strval($num);
+    return $gameData;
 }
 
 /**
@@ -59,5 +62,5 @@ function prime()
  */
 function runPrime()
 {
-    run(__NAMESPACE__ . '\prime', GAME_RULES);
+    run(__NAMESPACE__ . '\prime', DESCRIPTION);
 }
