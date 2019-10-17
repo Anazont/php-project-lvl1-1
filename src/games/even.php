@@ -46,9 +46,9 @@ function even()
 /**
  * Function run game even
  *
- * @return voidx
+ * @return void
  */
 function runEven() 
 {
-    run(__NAMESPACE__ . \even, DESCRIPTION);
+    run(__NAMESPACE__ . '\even', DESCRIPTION);
 };
