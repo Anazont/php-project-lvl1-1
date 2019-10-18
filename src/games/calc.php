@@ -45,27 +45,21 @@ function calculate($num1, $num2, $operation)
 }
 
 /**
- * Function generate params for game brain-calc
- *
- * @return array
- */
-function calc()
-{
-    $gameData = [];
-    $operation = OPERATIONS[array_rand(OPERATIONS)];
-    $num1 = mt_rand(1, 99);
-    $num2 = mt_rand(1, 99);
-    $gameData['currentAnswer'] = strval(calculate($num1, $num2, $operation));
-    $gameData['question'] = "{$num1}{$operation}{$num2}";
-    return $gameData;
-}
-
-/**
  * Function run game
  *
  * @return void
  */
 function runCalc()
 {
-    run(__NAMESPACE__ . '\calc', DESCRIPTION);
+    $calc = function () {
+        $gameData = [];
+        $operation = OPERATIONS[array_rand(OPERATIONS)];
+        $num1 = mt_rand(1, 99);
+        $num2 = mt_rand(1, 99);
+        $gameData['currentAnswer'] = strval(calculate($num1, $num2, $operation));
+        $gameData['question'] = "{$num1}{$operation}{$num2}";
+        return $gameData;
+    };
+
+    run($calc, DESCRIPTION);
 }
