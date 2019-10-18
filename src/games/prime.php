@@ -42,25 +42,19 @@ function isPrime($num)
 }
 
 /**
- * Function generate params for game Prime
- *
- * @return void
- */
-function prime()
-{
-    $gameData = [];
-    $num = mt_rand(3, 65565);
-    $gameData['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
-    $gameData['question'] = strval($num);
-    return $gameData;
-}
-
-/**
  * Function run game prime
  *
  * @return void
  */
 function runPrime()
 {
-    run(__NAMESPACE__ . '\prime', DESCRIPTION);
+    $prime = function () {
+        $gameData = [];
+        $num = mt_rand(3, 65565);
+        $gameData['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
+        $gameData['question'] = strval($num);
+        return $gameData;
+    };
+
+    run($prime, DESCRIPTION);
 }

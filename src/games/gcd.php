@@ -32,26 +32,20 @@ function getGcd($num1, $num2)
 }
 
 /**
- * The function run game GCD
- *
- * @return integer the greatest common divisor of given numbers
- */
-function gcd()
-{
-    $gameData = [];
-    $num1 = mt_rand(1, 99);
-    $num2 = mt_rand(1, 99);
-    $gameData['currentAnswer'] = strval(getGcd($num1, $num2));
-    $gameData['question'] = "{$num1} {$num2}";
-    return $gameData;
-}
-
-/**
  * Function run game gcd
  *
  * @return void
  */
 function runGcd()
 {
-    run(__NAMESPACE__ . '\gcd', DESCRIPTION);
+    $gcd = function () {
+        $gameData = [];
+        $num1 = mt_rand(1, 99);
+        $num2 = mt_rand(1, 99);
+        $gameData['currentAnswer'] = strval(getGcd($num1, $num2));
+        $gameData['question'] = "{$num1} {$num2}";
+        return $gameData;
+    };
+
+    run($gcd, DESCRIPTION);
 }
