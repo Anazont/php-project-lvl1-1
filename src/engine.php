@@ -31,11 +31,11 @@ function run($game, $description)
 {
     line("Welcome To The Brain Games!");
     line($description);
-    $gameData = call_user_func($game);
+    $gameData = $game();
     $name = getUsername();
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         flow($name, $gameData['question'], $gameData['currentAnswer']);
-        $gameData = call_user_func($game);
+        $gameData = $game();
     }
     line("Congratulations, %s", $name);
 }

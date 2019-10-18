@@ -31,24 +31,17 @@ function isEven($num)
 }
 
 /**
- * The function is run game even
- *
- * @return string
- */
-function even()
-{
-    $gameData = [];
-    $gameData['question'] = strval(mt_rand(1, 99));
-    $gameData['currentAnswer'] = isEven($gameData['question']) ? "yes" : "no";
-    return $gameData;
-}
-
-/**
  * Function run game even
  *
  * @return void
  */
-function runEven() 
+function runEven()
 {
-    run(__NAMESPACE__ . '\even', DESCRIPTION);
+    $even = function () {
+        $gameData = [];
+        $gameData['question'] = strval(mt_rand(1, 99));
+        $gameData['currentAnswer'] = isEven($gameData['question']) ? "yes" : "no";
+        return $gameData;
+    };
+    run($even, DESCRIPTION);
 }
