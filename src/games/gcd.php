@@ -17,6 +17,7 @@ namespace BrainGames\Gcd;
 use function BrainGames\Engine\run;
 
 const DESCRIPTION = "Find the greatest common divisor of given numbers.";
+const MAX_RANDOM_VALUE = 99;
 
 /**
  * The function is expect the number is even
@@ -40,8 +41,8 @@ function runGcd()
 {
     $gcd = function () {
         $gameData = [];
-        $num1 = mt_rand(1, 99);
-        $num2 = mt_rand(1, 99);
+        $num1 = mt_rand(1, MAX_RANDOM_VALUE);
+        $num2 = mt_rand(1, MAX_RANDOM_VALUE);
         $gameData['currentAnswer'] = strval(getGcd($num1, $num2));
         $gameData['question'] = "{$num1} {$num2}";
         return $gameData;

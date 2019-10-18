@@ -17,6 +17,8 @@ namespace BrainGames\Prime;
 use function BrainGames\Engine\run;
 
 const DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+const MAX_RANDOM_VALUE = 65565;
+
 /**
  * The function checks the number is prime
  *
@@ -27,18 +29,22 @@ const DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no
 function isPrime($num)
 {
     if ($num < 2) {
-        return $num > 2;
+        return false;
     }
     //if the number is even then it is not prime
     if ($num % 2 === 0) {
         return $num === 2;
     }
     $div = 3;
+    $limit = sqrt($num);
     //any compound number has its own divisor, not exceeding the square root of
-    while ((($div * $div) <= $num) && (($num % $div) !== 0)) {
+    while ($div <= $limit) {
+        if (($num % $div) === 0) {
+            return false;
+        }
         $div += 2;
     }
-    return ($div * $div) > $num;
+    return true;
 }
 
 /**
@@ -50,7 +56,7 @@ function runPrime()
 {
     $prime = function () {
         $gameData = [];
-        $num = mt_rand(3, 65565);
+        $num = mt_rand(3, MAX_RANDOM_VALUE);
         $gameData['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
         $gameData['question'] = strval($num);
         return $gameData;

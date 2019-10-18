@@ -17,6 +17,7 @@ namespace BrainGames\Even;
 use function BrainGames\Engine\run;
 
 const DESCRIPTION = "Answer 'yes' if the number is even, other answer 'no'.";
+const MAX_RANDOM_VALUE = 99;
 
 /**
  * The function is expect the nunber is even
@@ -39,7 +40,7 @@ function runEven()
 {
     $even = function () {
         $gameData = [];
-        $gameData['question'] = strval(mt_rand(1, 99));
+        $gameData['question'] = strval(mt_rand(1, MAX_RANDOM_VALUE));
         $gameData['currentAnswer'] = isEven($gameData['question']) ? "yes" : "no";
         return $gameData;
     };

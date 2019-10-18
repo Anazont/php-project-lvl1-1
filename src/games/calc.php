@@ -18,6 +18,7 @@ use function BrainGames\Engine\run;
 
 const DESCRIPTION = "What is the result of the expression?";
 const OPERATIONS = ['+', '-', '*'];
+const MAX_RANDOM_VALUE = 99;
 
 /**
  * Function calculate two numbers
@@ -54,8 +55,8 @@ function runCalc()
     $calc = function () {
         $gameData = [];
         $operation = OPERATIONS[array_rand(OPERATIONS)];
-        $num1 = mt_rand(1, 99);
-        $num2 = mt_rand(1, 99);
+        $num1 = mt_rand(1, MAX_RANDOM_VALUE);
+        $num2 = mt_rand(1, MAX_RANDOM_VALUE);
         $gameData['currentAnswer'] = strval(calculate($num1, $num2, $operation));
         $gameData['question'] = "{$num1}{$operation}{$num2}";
         return $gameData;
