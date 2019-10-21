@@ -27,9 +27,12 @@ const ROUNDS_COUNT = 3;
  *
  * @return void
  */
-function run($game, $description)
+function run($game = [], $description = '')
 {
     line("Welcome To The Brain Games!");
+    if ($description === '') {
+        exit;
+    }
     line($description);
     $gameData = $game();
     $name = prompt('May I have your name?');
