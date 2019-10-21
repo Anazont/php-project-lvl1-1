@@ -39,7 +39,7 @@ function getGcd($num1, $num2)
  */
 function runGcd()
 {
-    $gcd = function () {
+    $getGcdData = function () {
         $gameData = [];
         $num1 = mt_rand(1, MAX_RANDOM_VALUE);
         $num2 = mt_rand(1, MAX_RANDOM_VALUE);
@@ -48,5 +48,5 @@ function runGcd()
         return $gameData;
     };
 
-    run($gcd, DESCRIPTION);
+    run($getGcdData, DESCRIPTION);
 }

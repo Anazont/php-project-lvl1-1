@@ -32,24 +32,13 @@ function run($game, $description)
     line("Welcome To The Brain Games!");
     line($description);
     $gameData = $game();
-    $name = getUsername();
+    $name = prompt('May I have your name?');
+    line("Hello, %s!", $name);
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
         flow($name, $gameData['question'], $gameData['currentAnswer']);
         $gameData = $game();
     }
     line("Congratulations, %s", $name);
-}
-
-/**
- * Function ask the name of User
- *
- * @return string username
- */
-function getUsername()
-{
-    $name = prompt('May I have your name?');
-    line("Hello, %s!", $name);
-    return $name;
 }
 
 /**
@@ -63,7 +52,7 @@ function getUsername()
  */
 function flow($name, $question, $currentAnswer)
 {
-    $userAnswer = userAnswer($question);
+    $userAnswer = prompt("Question: {$question}");
     if ($userAnswer !== $currentAnswer) {
         line(" '%s' is wrong answer ;(.", $userAnswer);
         line("Correct answer was '%s'.Let's try again, %s!", $currentAnswer, $name);
@@ -71,17 +60,4 @@ function flow($name, $question, $currentAnswer)
     } else {
         line("Correct!");
     }
-}
-
-/**
- * The function asks the user question
- *
- * @param integer $question random number
- *
- * @return integer
- */
-function userAnswer($question)
-{
-    $userAnswer = prompt("Question: {$question}");
-    return $userAnswer;
 }

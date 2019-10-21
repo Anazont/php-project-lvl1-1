@@ -38,11 +38,11 @@ function isEven($num)
  */
 function runEven()
 {
-    $even = function () {
+    $getEvenData = function () {
         $gameData = [];
         $gameData['question'] = strval(mt_rand(1, MAX_RANDOM_VALUE));
         $gameData['currentAnswer'] = isEven($gameData['question']) ? "yes" : "no";
         return $gameData;
     };
-    run($even, DESCRIPTION);
+    run($getEvenData, DESCRIPTION);
 }

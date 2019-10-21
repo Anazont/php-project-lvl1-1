@@ -54,7 +54,7 @@ function isPrime($num)
  */
 function runPrime()
 {
-    $prime = function () {
+    $getPrimeData = function () {
         $gameData = [];
         $num = mt_rand(3, MAX_RANDOM_VALUE);
         $gameData['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
@@ -62,5 +62,5 @@ function runPrime()
         return $gameData;
     };
 
-    run($prime, DESCRIPTION);
+    run($getPrimeData, DESCRIPTION);
 }
