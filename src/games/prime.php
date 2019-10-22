@@ -55,10 +55,14 @@ function isPrime($num)
 function runPrime()
 {
     $getPrimeData = function () {
-        $gameData = [];
         $num = mt_rand(3, MAX_RANDOM_VALUE);
-        $gameData['currentAnswer'] = isPrime($num) ? 'yes' : 'no';
-        $gameData['question'] = strval($num);
+        
+        $currentAnswer = isPrime($num) ? 'yes' : 'no';
+        $question = strval($num);
+
+        $gameData = [];
+        $gameData['currentAnswer'] = $currentAnswer;
+        $gameData['question'] = $question;
         return $gameData;
     };
 

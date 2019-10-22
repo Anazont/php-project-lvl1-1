@@ -53,12 +53,16 @@ function calculate($num1, $num2, $operation)
 function runCalc()
 {
     $getCalcData = function () {
-        $gameData = [];
         $operation = OPERATIONS[array_rand(OPERATIONS)];
         $num1 = mt_rand(1, MAX_RANDOM_VALUE);
         $num2 = mt_rand(1, MAX_RANDOM_VALUE);
-        $gameData['currentAnswer'] = strval(calculate($num1, $num2, $operation));
-        $gameData['question'] = "$num1 $operation $num2";
+
+        $question = "$num1 $operation $num2";
+        $currentAnswer = strval(calculate($num1, $num2, $operation));
+        
+        $gameData = [];
+        $gameData['currentAnswer'] = $currentAnswer;
+        $gameData['question'] = $question;
         return $gameData;
     };
 

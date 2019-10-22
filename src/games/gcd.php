@@ -40,11 +40,15 @@ function getGcd($num1, $num2)
 function runGcd()
 {
     $getGcdData = function () {
-        $gameData = [];
         $num1 = mt_rand(1, MAX_RANDOM_VALUE);
         $num2 = mt_rand(1, MAX_RANDOM_VALUE);
-        $gameData['currentAnswer'] = strval(getGcd($num1, $num2));
-        $gameData['question'] = "{$num1} {$num2}";
+
+        $currentAnswer = strval(getGcd($num1, $num2));
+        $question = "$num1 $num2";
+        
+        $gameData = [];
+        $gameData['currentAnswer'] = $currentAnswer;
+        $gameData['question'] = $question;
         return $gameData;
     };
 

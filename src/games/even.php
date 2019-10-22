@@ -39,9 +39,12 @@ function isEven($num)
 function runEven()
 {
     $getEvenData = function () {
+        $question = strval(mt_rand(1, MAX_RANDOM_VALUE));
+        $currentAnswer = isEven($question) ? "yes" : "no";
+        
         $gameData = [];
-        $gameData['question'] = strval(mt_rand(1, MAX_RANDOM_VALUE));
-        $gameData['currentAnswer'] = isEven($gameData['question']) ? "yes" : "no";
+        $gameData['question'] = $question;
+        $gameData['currentAnswer'] = $currentAnswer;
         return $gameData;
     };
     run($getEvenData, DESCRIPTION);

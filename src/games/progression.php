@@ -45,14 +45,19 @@ function getProgression($start, $diff)
 function runProgression()
 {
     $getProgressionData = function () {
-        $gameData = [];
         $hideElementIndex = mt_rand(0, 9);
         $firstValue = mt_rand(1, MAX_RANDOM_VALUE);
         $diff = mt_rand(1, MAX_RANDOM_VALUE);
         $progression = getProgression($firstValue, $diff);
-        $gameData['currentAnswer'] = strval($progression[$hideElementIndex]);
-        $progression[$hideElementIndex] = '..';
-        $gameData['question'] = implode(' ', $progression);
+        $progressionWithHideElement = $progression;
+        $progressionWithHideElement[$hideElementIndex] = '..';
+
+        $currentAnswer = strval($progression[$hideElementIndex]);
+        $question = implode(' ', $progressionWithHideElement);
+
+        $gameData = [];
+        $gameData['currentAnswer'] = $currentAnswer;
+        $gameData['question'] = $question;
         return $gameData;
     };
     
