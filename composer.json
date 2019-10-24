@@ -1,6 +1,6 @@
 {
     "name": "rinatsin/php-project-lvl1",
-    "type": "php-project",
+    "type": "project",
     "description": "PHP Project implements the Brain Games",
     "keywords": ["php", "games", "brain", "cli"],
     "authors": [
@@ -14,7 +14,6 @@
         "phpcs": "phpcs"
     },
     "bin": [
-        "bin/brain-games",
         "bin/brain-even",
         "bin/brain-calc",
         "bin/brain-gcd",
