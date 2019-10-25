@@ -12,7 +12,7 @@
  * @link     https://github.com/Rinatsin/php-project-lvl1
  */
 
-namespace BrainGames\Even;
+namespace BrainGames\Games\Even;
 
 use function BrainGames\Engine\run;
 

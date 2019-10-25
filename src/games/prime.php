@@ -12,7 +12,7 @@
  * @link     https://github.com/Rinatsin/php-project-lvl1
  */
 
-namespace BrainGames\Prime;
+namespace BrainGames\Games\Prime;
 
 use function BrainGames\Engine\run;
 

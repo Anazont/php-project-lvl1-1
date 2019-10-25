@@ -12,7 +12,7 @@
  * @link     https://github.com/Rinatsin/php-project-lvl1
  */
 
-namespace BrainGames\Gcd;
+namespace BrainGames\Games\Gcd;
 
 use function BrainGames\Engine\run;
 

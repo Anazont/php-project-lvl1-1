@@ -12,7 +12,7 @@
  * @link     https://github.com/Rinatsin/php-project-lvl1
  */
 
-namespace BrainGames\Progression;
+namespace BrainGames\Games\Progression;
 
 use function BrainGames\Engine\run;
 
