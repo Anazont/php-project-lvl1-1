@@ -31,10 +31,10 @@ function run($getGameData, $description)
 {
     line("Welcome To The Brain Games!");
     line($description);
-    $gameData = $getGameData();
     $name = prompt('May I have your name?');
     line("Hello, %s!", $name);
     for ($i = 0; $i < ROUNDS_COUNT; $i++) {
+        $gameData = $getGameData();
         $question = $gameData['question'];
         $currentAnswer = $gameData['currentAnswer'];
         $userAnswer = prompt("Question: {$question}");
@@ -45,7 +45,6 @@ function run($getGameData, $description)
         } else {
             line("Correct!");
         }
-        $gameData = $getGameData();
     }
     line("Congratulations, %s", $name);
 }
